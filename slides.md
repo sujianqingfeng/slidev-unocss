@@ -1,18 +1,15 @@
 ---
-theme: seriph
+layout: cover
 background: https://source.unsplash.com/collection/94734566/1920x1080
-class: text-center
 highlighter: shiki
-lineNumbers: false
-info: |
-  ## Unocss shared
-drawings:
-  persist: false
 transition: slide-left
-title: Welcome to Slidev
 ---
 
-# Welcome to Unocss
+# Unocss
+
+Instant On-demand Atomic CSS Engine
+
+Hens
 
 
 ---
@@ -24,23 +21,49 @@ transition: slide-left
 
 # 原子化CSS
 
-一种编写css的方法
+编写css的方法
+
+
+
+
+
+
+
+
+
 
 
 
 ---
+theme: seriph
 layout: two-cols
 ---
 
-# Left
+# Example
 
-This shows on the left
+```css
+.color-flower-pink {
+  color: #ec9bad
+}
+```
 
-::right::
 
-# Right
+<template #right>
+<div pt-20 ml-40 text-20  write-vertical-right class="color-flower-pink" >
+ 粉团花红
+</div>
+</template>
 
-This shows on the right
+<style>
+.color-flower-pink {
+  color: #ec9bad
+}
+
+code {
+  @apply text-8 leading-12; 
+}
+</style>
+
 
 
 
@@ -49,24 +72,64 @@ This shows on the right
 
 ---
 transition: slide-left
+layout: two-cols
 --- 
-# Example
 
-```css 
-.color-red {
-  color: red
+# Sass
+
+``` scss
+$directions: (t: top, x: (left,right));
+$edges: (m: margin);
+@mixin edge($edge, $d, $rpx) {
+  $full-direction: map-get($directions, $d); 
+  $property: map-get($edges, $edge);
+  .#{$edge}#{$d}-#{$rpx} {
+    @if type-of($full-direction) == 'list' {
+      @each $direction in $full-direction {
+        #{$property}-#{$direction}: #{$rpx}rpx;
+      }
+    } @else {
+      #{$property}-#{$full-direction}: #{$rpx}rpx;
+    }
+  }
+}
+
+$margin-sizes: (('x', (4, 8)),('t', (4, 8)));
+@each $item in $margin-sizes {
+  $d: nth($item, 1); $sizes: nth($item, 2);
+  @each $size in $sizes {
+    @include edge('m', $d, $size);
+  }
 }
 ```
 
-<div class="flex">
-  <div>
-fff
-  </div>
 
-  <div>
-    rig
-  </div>
-</div>
+::right::
+# css
+
+ ``` css
+ .mx-4 {
+  margin-left: 4rpx;
+  margin-right: 4rpx;
+}
+
+.mx-8 {
+  margin-left: 8rpx;
+  margin-right: 8rpx;
+}
+
+.mt-4 {
+  margin-top: 4rpx;
+}
+
+.mt-8 {
+  margin-top: 8rpx;
+}
+ ```
+
+
+
+
 
 
 ---
