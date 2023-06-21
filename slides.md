@@ -14,8 +14,7 @@ Hens
 
 ---
 theme: seriph
-layout: cover
-background: 'https://source.unsplash.com/1600x900/?nature,water'
+layout: section
 transition: slide-left
 ---
 
@@ -49,8 +48,8 @@ layout: two-cols
 
 
 <template #right>
-<div pt-20 ml-40 text-20  write-vertical-right class="color-flower-pink" >
- 粉团花红
+<div pt-20 ml-40 text-20 class="color-flower-pink" >
+ <uil-flower />
 </div>
 </template>
 
@@ -133,7 +132,76 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 
 
 ---
-transition: fade-out
+transition: slide-left
+layout: center
+---
+
+
+# 麻烦 ？
+
+
+
+
+
+
+---
+transition: slide-left
+---
+
+# Frameworks 
+
+<FrameworkList/>
+
+
+
+
+
+---
+layout: two-cols
+transition: slide-left
+---
+
+# Tailwind Css
+
+- 本质上是一个插件，依赖于postcss
+- 独立公司维护
+
+::right::
+
+# UnoCss
+
+- 零依赖，轻量
+- 快
+- 社区维护
+- 预设兼容tailwind css
+
+
+<div v-click position-absolute top-0  class="right-50%">
+  <carbon-badge color-green text-10 />
+</div>
+
+
+
+---
+transition: slide-left
+---
+
+# Unocss Core Features
+
+- Rules
+- Shortcuts
+- Attributify Mode
+- Presets
+- Pure Css Icons
+- Css Directives
+- Inspector 
+
+
+
+
+
+---
+transition: slide-left
 ---
 
 # What is Slidev?
