@@ -129,6 +129,22 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 
 
 
+---
+transition: slide-left
+--- 
+
+
+# benefit
+
+- 复用，减少css的体积
+- 可维护性，样式之间独立，不会造成耦合
+- dx, 开发者体验
+
+# disadvantages
+
+- 学习成本
+- 不利于阅读
+
 
 
 ---
@@ -137,8 +153,17 @@ layout: center
 ---
 
 
-# 麻烦 ？
+# One Problem
 
+
+
+---
+transition: slide-left
+layout: center
+---
+
+
+# atomic css frameworks 
 
 
 
@@ -152,6 +177,7 @@ transition: slide-left
 
 <FrameworkList/>
 
+TODO 这里动画移掉windicss 
 
 
 
@@ -201,6 +227,13 @@ transition: slide-left
 
 
 
+
+---
+layout: center
+class: text-center
+---
+
+# Q&A
 
 
 
