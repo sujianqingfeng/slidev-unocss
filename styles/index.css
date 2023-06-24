@@ -1,3 +1,8 @@
 .two-columns{
   @apply grid-gap-4;
 }
+
+
+.slidev-vclick-target {
+  transition: all 500ms ease;
+}
