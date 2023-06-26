@@ -34,6 +34,8 @@ growY: 50
 
 ---
 layout: two-cols
+growX: 10
+growY: 50
 ---
 
 # Example
@@ -77,6 +79,8 @@ layout: two-cols
 
 ---
 layout: two-cols
+growX: 50
+growY: 10
 --- 
 
 # Sass
@@ -133,21 +137,47 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 
 
 
-
----
 --- 
 
 
-# benefit
+<div>
+  <p class="!m-0 mb-1" >atomic css of</p>
+  <h1>Advantages</h1>
+</div>
 
-- 复用，减少css的体积
-- 可维护性，样式之间独立，不会造成耦合
-- dx, 开发者体验
+<v-clicks>
 
-# disadvantages
+- 复用
+- 可维护性
+- 提升开发者体验
+
+</v-clicks>
+
+
+
+
+
+
+
+--- 
+
+<div mt-6 >
+  <p class="!m-0 mb-1" >atomic css of</p>
+  <h1>Disadvantages</h1>
+</div>
+
+
+
+<v-clicks>
 
 - 学习成本
 - 不利于阅读
+
+</v-clicks>
+
+
+
+
 
 
 
@@ -165,7 +195,7 @@ layout: center
 ---
 
 
-# atomic css frameworks 
+# Atomic css frameworks 
 
 
 
@@ -177,26 +207,49 @@ layout: center
 
 <FrameworkList/>
 
+
+
+
+
 ---
-layout: two-cols
+growX: 50
+growY: 130
 ---
 
-# Tailwind Css
 
-- 本质上是一个插件，依赖于postcss
-- 独立公司维护
+<div flex>
+  <div flex-1>
 
-::right::
+  # Tailwind Css
 
-# UnoCss
+  <v-clicks>
 
-- 零依赖，轻量
-- 快
-- 社区维护
-- 预设兼容tailwind css
+  - postcss插件
+  - 独立公司维护
+
+  </v-clicks>
+
+  </div>
+
+  <div flex-1>
+
+  # UnoCss
+
+  <v-clicks>
+  
+  - 快
+  - 零依赖，轻量
+  - 社区维护
+  - 预设兼容tailwind css
 
 
-<div v-click position-absolute top-0  class="right-50%">
+  </v-clicks>
+  </div>
+
+</div>
+
+
+<div v-click position-absolute top-10  class="right-30%">
   <carbon-badge color-green text-10 />
 </div>
 
@@ -239,6 +292,9 @@ growY: 10
 # Rules
 
 
+<div flex gap-2>
+
+<div flex-1>
 
 ``` ts
 // uno.config.ts
@@ -246,10 +302,41 @@ import { defineConfig } from 'unocss'
 
 export default defineConfig({
   rules: [
-    [/^m-([\.\d]+)$/, ([_, num]) => ({ margin: `${num}px` })],
+    [/^face-color-(.+)$/, ([_, color]) => ({ color })],
   ],
 })
 ```
+
+<div mt-4 v-click>
+
+``` vue
+<script lang="ts" setup>
+import { useCycleList } from '@vueuse/core'
+const { state, next } = useCycleList([
+  'face-color-#0eb0c9',
+  'face-color-#e9d7df',
+  'face-color-#fffef9',
+  'face-color-#ffc90c',
+])
+</script>
+
+<template>
+  <carbon-face-cool class="text-20" :class="state" @click="()=>next()" />
+</template>
+```
+
+</div>
+
+</div>
+
+
+<div flex-1 flex justify-center items-center>
+<RulesDemo v-click />
+</div>
+</div>
+
+
+
 
 
 ---
@@ -364,7 +451,6 @@ class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-
 ---
 ---
 # Pure Css Icons
-
 
 
 <button class="i-carbon-sun dark:i-carbon-moon" />

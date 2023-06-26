@@ -6,4 +6,7 @@ export default defineConfig({
   shortcuts: {
     'my-button': 'text-4 rounded-2 px-2 py-1 font-bold'
   },
+  rules:[
+    [/^face-color-(.+)$/, ([_, color]) => ({ color })],
+  ]
 })

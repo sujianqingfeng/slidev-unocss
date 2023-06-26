@@ -14,6 +14,9 @@ dependencies:
   '@slidev/theme-seriph':
     specifier: latest
     version: 0.21.3
+  '@vueuse/core':
+    specifier: ^10.2.0
+    version: 10.2.0(vue@3.3.4)
 
 devDependencies:
   '@iconify-json/logos':
