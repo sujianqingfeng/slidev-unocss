@@ -384,7 +384,7 @@ export default defineConfig({
 
 
 <template #right>
-  <div mt-10 v-click>
+  <div h-full flex-center v-click>
     <button class="text-4 rounded-2 px-2 py-1 font-bold bg-green">
       green
     </button>
@@ -394,43 +394,129 @@ export default defineConfig({
 
 
 ---
+layout: my-two-cols
 ---
-# Shortcuts
 
+<h1 text-10>Shortcuts</h1>  
+
+<div v-click="1">
+
+``` html
 <button class="text-4 rounded-2 px-2 py-1 font-bold bg-green">
  green
 </button>
 
-
 <button class="text-4 rounded-2 px-2 py-1 font-bold bg-pink">
  pink
 </button>
+```
+</div>
 
 
 
+<div mt-2 v-click="3">
 
+``` ts
+export default defineConfig({
+  shortcuts: {
+    'my-button': 'text-4 rounded-2 px-2 py-1 font-bold',
+  },
+})
+```
+</div>
+
+<div mt-2 v-click="4">
+
+``` html
 <button class="my-button bg-green">
  green
 </button>
 
+<button class="my-button bg-pink">
+ pink
+</button>
+```
+</div>
+
+
+
+<template #right>
+
+<div mt-25 flex-center gap-2 v-click="2">
+<button class="text-4 rounded-2 px-2 py-1 font-bold bg-green">
+ green
+</button>
+
+<button class="text-4 rounded-2 px-2 py-1 font-bold bg-pink">
+ pink
+</button>
+</div>
+
+<div mt-50 flex-center gap-2 v-click="5">
+<button class="my-button bg-green">
+ green
+</button>
 
 <button class="my-button bg-pink">
  pink
 </button>
-
+</div>
+</template>
 
 
 
 
 ---
+layout: my-two-cols
 ---
-# Attributify Mode
+
+<h1 text-10>Attributify Mode</h1>  
 
 
+
+<v-click>
+
+``` html
+<button 
+  class="bg-blue-400 hover:bg-blue-500 text-sm text-white 
+  font-mono font-light py-2 px-4 
+  rounded border-2 border-blue-200 
+  dark:bg-blue-500 dark:hover:bg-blue-600">
+  Button
+</button>
+``` 
+</v-click>
+
+
+<template #right>
+
+<div flex-center mt-20 v-click>
+<button 
+class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-2 px-4 rounded border-2 border-blue-200 dark:bg-blue-500 dark:hover:bg-blue-600">
+  Button
+</button>
+</div>
+</template>
+
+
+
+
+---
+layout: my-two-cols
+---
+
+<h1 text-10>Attributify Mode</h1>  
+
+
+
+<div v-click="1">
 
 ``` bash
 pnpm add -D @unocss/preset-attributify
 ```
+</div>
+
+<div mt-2 v-click="2">
 
 ``` ts 
 // uno.config.ts
@@ -442,21 +528,11 @@ export default defineConfig({
   ],
 })
 ```
+</div>
 
+<div mt-2 v-click="3">
 
-<button color-green>Button</button>
-
-
-<button 
-class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-2 px-4 rounded border-2 border-blue-200 dark:bg-blue-500 dark:hover:bg-blue-600">
-  Button
-</button>
-
-
-
-
-
-
+``` html
 <button 
   bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
   text="sm white"
@@ -465,6 +541,35 @@ class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-
   border="2 rounded blue-200">
   Button
 </button>
+```
+</div>
+
+<div mt-2 v-click="5">
+
+``` html
+<button color-green>Button</button>
+```
+</div>
+
+<template #right>
+
+<div h-full flex-center flex-col gap-2>
+  <div v-click="4">
+    <button 
+      bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
+      text="sm white"
+      font="mono light"
+      p="y-2 x-4"
+      border="2 rounded blue-200">
+      Button
+    </button>
+  </div>
+
+  <div v-click="6">
+    <button color-green>Button</button>
+  </div>
+</div>
+</template>
 
 
 
