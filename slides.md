@@ -274,6 +274,9 @@ growY: 10
 
 # Unocss Core Features
 
+
+<v-clicks>
+
 - Rules
 - Presets
 - Shortcuts
@@ -281,6 +284,8 @@ growY: 10
 - Pure Css Icons
 - Css Directives
 - Inspector 
+
+</v-clicks>
 
 
 
@@ -340,14 +345,20 @@ const { state, next } = useCycleList([
 
 
 ---
+layout: my-two-cols
 ---
-# Presets
+
+<h1 text-10>Presets</h1>  
+
+
+<v-click>
 
 ``` bash
 pnpm add -D @unocss/preset-uno
 ```
+</v-click>
 
-<div pt-2> </div> 
+<div mt-2 v-click> 
 
 ``` ts
 // uno.config.ts
@@ -360,14 +371,25 @@ export default defineConfig({
   ],
 })
 ```
+</div> 
 
+<div mt-2 v-click>
 
+``` html
 <button class="text-4 rounded-2 px-2 py-1 font-bold bg-green">
- green
+  green
 </button>
+```
+</div>
 
 
-
+<template #right>
+  <div mt-10 v-click>
+    <button class="text-4 rounded-2 px-2 py-1 font-bold bg-green">
+      green
+    </button>
+  </div>
+</template>
 
 
 
