@@ -9,5 +9,8 @@ export default defineConfig({
   },
   rules:[
     [/^face-color-(.+)$/, ([_, color]) => ({ color })],
+  ],
+  safelist:[
+    ...['#0eb0c9','#e9d7df','#fffef9','#ffc90c'].map(c=>`color-${c}`)
   ]
 })

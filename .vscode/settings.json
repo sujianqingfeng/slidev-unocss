@@ -6,5 +6,8 @@
     "Slidev",
     "Unocss",
     "vueuse"
-  ]
+  ],
+  "editor.quickSuggestions": {
+    "strings": true
+  },
 }

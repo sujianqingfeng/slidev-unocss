@@ -470,6 +470,73 @@ export default defineConfig({
 layout: my-two-cols
 ---
 
+<h1 text-10>Css Directives</h1>  
+
+
+
+<div v-click="1">
+
+``` bash
+pnpm add -D @unocss/transformer-directives
+```
+</div>
+
+<div mt-2 v-click="2">
+
+``` ts 
+// uno.config.ts
+import transformerDirectives from '@unocss/transformer-directives'
+
+export default defineConfig({
+  transformers: [
+    transformerDirectives(),
+  ],
+})
+```
+</div>
+
+<div mt-2 v-click="3">
+
+``` vue
+// demo.vue
+<template>
+  <button class="inner-button">Button</button>
+</template>
+
+<style>
+.inner-button {
+  @apply text-4 rounded-2 px-2 py-1 font-bold;
+}
+</style>
+```
+</div>
+
+
+<template #right>
+
+<div h-full flex-center flex-col gap-2>
+  <div v-click="4">
+    <button class="inner-button bg-red">Button</button>
+  </div>
+</div>
+</template>
+
+
+
+
+<style>
+.inner-button {
+  @apply text-4 rounded-2 px-2 py-1 font-bold;
+}
+</style>
+
+
+
+
+---
+layout: my-two-cols
+---
+
 <h1 text-10>Attributify Mode</h1>  
 
 
@@ -576,23 +643,185 @@ export default defineConfig({
 
 
 ---
+layout: my-two-cols
 ---
-# Pure Css Icons
+
+<h1 text-10>Pure Css Icons</h1>  
 
 
+
+<div v-click="1">
+
+``` bash
+pnpm add -D @unocss/preset-icons @iconify-json/[the-collection-you-want]
+```
+</div>
+
+<div mt-2 v-click="2">
+
+``` ts 
+// uno.config.ts
+import presetIcons from '@unocss/preset-icons'
+
+export default defineConfig({
+  presets: [
+    presetIcons({ /* options */ }),
+  ],
+})
+```
+</div>
+
+<div mt-2 v-click="3">
+
+``` vue
 <button class="i-carbon-sun dark:i-carbon-moon" />
+```
+</div>
 
+
+<template #right>
+
+<div h-full flex-center flex-col gap-2>
+  <div v-click="4">
+    <Icon/>
+  </div>
+</div>
+</template>
+
+
+
+
+<div mt-30 color-gray text-2 v-click="5">
+
+[Icons Link](https://icones.js.org/)
+</div>
 
 
 
 
 ---
+layout: my-two-cols
+---
+
+<h1 text-10>SafeList</h1>  
+
+
+
+<div v-click="1">
+
+``` ts 
+// uno.config.ts
+export default defineConfig({
+  safelist:[
+    ...['#0eb0c9','#e9d7df','#fffef9','#ffc90c'].map(c=>`color-${c}`)
+  ]
+})
+```
+</div>
+
+
+<div mt-2 v-click="2">
+
+``` vue
+<script lang="ts" setup>
+import { useCycleList } from '@vueuse/core'
+const { state, next } = useCycleList([
+  '#0eb0c9',
+  '#e9d7df',
+  '#fffef9',
+  '#ffc90c',
+])
+</script>
+
+<template>
+  <carbon-logo-vue 
+    class="text-20 cursor-pointer" 
+    :class="'color-' + state" 
+    @click="() => next()"
+  />
+</template>
+```
+</div>
+
+
+<template #right>
+
+<div h-full flex-center flex-col gap-2>
+  <div v-click="3">
+    <SafeListDemo />
+  </div>
+</div>
+</template>
+
+
+
+
+---
+layout: cover
+class: text-center
 ---
 
 # Tips
 
-- vscode extension
-- SafeLists
+
+
+---
+
+<div flex items-center>
+  <h1 class="!m-0 pr-2">Vscode extension</h1>
+  <a href="https://marketplace.visualstudio.com/items?itemName=antfu.unocss" target="_blank" rel="noopener">link</a>
+</div>
+
+
+<div v-click mt-4>
+  <img src="/vscode-auto-completion.png" />
+</div>
+
+
+
+
+---
+
+<div flex items-center>
+  <h1 class="!m-0 pr-2">Vscode extension</h1>
+  <a href="https://marketplace.visualstudio.com/items?itemName=antfu.unocss" target="_blank" rel="noopener">link</a>
+</div>
+
+
+<div v-click mt-4>
+  <img src="/vscode-hover.png" />
+</div>
+
+
+
+
+
+---
+
+<div flex items-center>
+  <h1 class="!m-0 pr-2">Inspector</h1>
+  <Inspector-link/>
+</div>
+
+
+<div v-click mt-4>
+  <img src="/inspector.png" />
+</div>
+
+
+
+
+---
+
+# Docs
+
+
+<v-clicks>
+
+- [Unocss interactive](https://unocss.dev/interactive)
+- [Tailwind css](https://tailwindcss.com/docs)
+</v-clicks>
+
 
 
 
