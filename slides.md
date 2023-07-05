@@ -1,8 +1,20 @@
 ---
-layout: cover
 highlighter: shiki
 # colorSchema: dark
 transition: fade-out
+---
+
+
+<div w-full h-full flex-center text-60 position-relative>
+  <p c-gray>签 到</p>
+  <div position-absolute  border p-2 rounded-2 border-gray  class="left-50% top-50% translate--50%">
+    <img src="/qr-code-placeholder.png" h-80 w-80 rounded-2 />
+  </div>
+</div>
+
+
+---
+layout: cover
 ---
 
 # Unocss
@@ -10,6 +22,13 @@ transition: fade-out
 Instant On-demand Atomic CSS Engine
 
 Hens
+
+
+<!--
+- unocss是什么
+- 提及原子化
+-->
+
 
 
 ---
@@ -23,12 +42,10 @@ growY: 50
 
 
 
-
-
-
-
-
-
+<!-- 
+- 定义： 通过属性及其属性值来编写样式，然后在使用得时候进行组合。
+- 这个概念很早就出现了，最近几年才出现这个词，并且开始流行起来。
+ -->
 
 
 
