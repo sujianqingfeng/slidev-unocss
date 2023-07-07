@@ -2,11 +2,13 @@
 highlighter: shiki
 # colorSchema: dark
 transition: fade-out
+growX: 60
+growY: 50
 ---
 
 
 <div w-full h-full flex-center text-60 position-relative>
-  <p c-gray>签 到</p>
+  <p c-gray opacity-20 tracking-10>签 到</p>
   <div position-absolute  border p-2 rounded-2 border-gray  class="left-50% top-50% translate--50%">
     <img src="/qr-code-placeholder.png" h-80 w-80 rounded-2 />
   </div>
@@ -15,6 +17,8 @@ transition: fade-out
 
 ---
 layout: cover
+growX: 100
+growY: 50
 ---
 
 # Unocss
