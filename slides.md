@@ -418,7 +418,7 @@ const { state, next } = useCycleList([
 
 <!-- 
 规则：
-- 通过正则匹配，可以自定义样式属性。
+- 通过正则匹配，生成自定义样式。
 
 
 
@@ -473,6 +473,16 @@ export default defineConfig({
   </div>
 </template>
 
+
+
+
+<!-- 
+Presets
+
+- 通过预设，可以快速的使用一些常用的样式。
+- 包含一些官方预设，还有一些社区预设。
+- 当然自己也可以定义预设。
+-->
 
 
 ---
@@ -548,6 +558,12 @@ export default defineConfig({
 
 
 
+<!-- 
+shortcuts
+
+我们可能存在一些公共的样式，我们可以考虑使用快捷方式来实现。而不用每次都单独写。
+-->
+
 ---
 layout: my-two-cols
 ---
@@ -614,6 +630,12 @@ export default defineConfig({
 
 
 
+<!-- 
+css指令
+
+有时候我么可能遇到在单个文件存在公共的样式，但是又不是全局的样式，我们可以考虑使用css指令来实现。
+-->
+
 
 ---
 layout: my-two-cols
@@ -649,6 +671,12 @@ class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-
 
 
 
+<!-- 
+属性模式
+
+有时候我们遇到复杂的布局的时候，样式可能会很长，难以阅读。
+我们可以考虑使用属性模式来分类样式，这样可以更好的阅读。
+-->
 
 ---
 layout: my-two-cols
@@ -780,6 +808,14 @@ export default defineConfig({
 
 
 
+<!-- 
+纯css图标 
+
+- 提供了几万+个图标，可以直接使用
+- 按需引入
+- 当然也可以自定义配置自己的svg图标
+-->
+
 
 ---
 layout: my-two-cols
@@ -837,6 +873,18 @@ const { state, next } = useCycleList([
 
 
 
+<!-- 
+safe list
+
+有时候我们会遇到动态的样式，但是正则是不能够匹配运行时的样式的。
+这个时候，我们可以考虑使用safe list来解决这个问题。
+但是，还有一个限制是动态的样式有限的。因为你总不能可能去列举所有的可能性。
+
+如果遇到这种情况，使用其他的方式更好一些，比如vue里面的计算属性。
+
+
+核心的特性介绍大致是这里内容，下面来讲一下一些开发技巧。
+-->
 
 ---
 layout: cover
@@ -860,6 +908,12 @@ class: text-center
 </div>
 
 
+<!-- 
+Vscode extension
+
+- 自动补全
+-->
+
 
 
 ---
@@ -876,6 +930,12 @@ class: text-center
 
 
 
+<!-- 
+Vscode extension
+
+- 组合提示
+-->
+
 
 
 ---
@@ -890,6 +950,13 @@ class: text-center
   <img src="/inspector.png" />
 </div>
 
+
+<!-- 
+检查器 
+
+借助一些打包器，可以在开发环境下使用检查器
+能够查看生成的样式
+-->
 
 
 
