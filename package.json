@@ -13,6 +13,7 @@
     "@vueuse/core": "^10.2.0"
   },
   "devDependencies": {
+    "@iconify-json/ic": "^1.1.13",
     "@iconify-json/logos": "^1.1.33",
     "@iconify-json/uil": "^1.1.4"
   }

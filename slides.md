@@ -247,7 +247,7 @@ layout: center
 
 ---
 
-# Frameworks 
+# Frameworks(框架)
 
 <FrameworkList/>
 
@@ -290,7 +290,7 @@ growY: 130
 
   <v-clicks>
   
-  - 快
+  - 正则匹配，快
   - 定制化程度很高 
   - 零依赖，轻量
   - 社区维护
@@ -341,17 +341,18 @@ growY: 10
 ---
 ---
 
-# Unocss Core Features
+# Unocss Core Features(核心特性)
 
 
 <v-clicks>
 
-- Rules
-- Presets
-- Shortcuts
-- Attributify Mode
-- Pure Css Icons
-- Css Directives
+- Rules (规则)
+- Presets (预设)
+- Shortcuts (快捷方式)
+- Attributify Mode (属性模式)
+- Pure Css Icons (纯css图标)
+- Css Directives (css指令)
+- Cli (命令行工具)
 
 </v-clicks>
 
@@ -370,7 +371,7 @@ growY: 10
 
 ---
 ---
-# Rules
+# Rules (规则)
 
 
 <div flex gap-2>
@@ -431,7 +432,7 @@ const { state, next } = useCycleList([
 layout: my-two-cols
 ---
 
-<h1 text-10>Presets</h1>  
+<h1 text-10>Presets (预设)</h1>  
 
 
 <v-click>
@@ -490,7 +491,7 @@ Presets
 layout: my-two-cols
 ---
 
-<h1 text-10>Shortcuts</h1>  
+<h1 text-10>Shortcuts (快捷方式)</h1>  
 
 <div v-click="1">
 
@@ -569,7 +570,7 @@ shortcuts
 layout: my-two-cols
 ---
 
-<h1 text-10>Css Directives</h1>  
+<h1 text-10>Css Directives (Css指令)</h1>  
 
 
 
@@ -642,7 +643,7 @@ css指令
 layout: my-two-cols
 ---
 
-<h1 text-10>Attributify Mode</h1>  
+<h1 text-10>Attributify Mode (属性模式)</h1>  
 
 
 
@@ -683,7 +684,7 @@ class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-
 layout: my-two-cols
 ---
 
-<h1 text-10>Attributify Mode</h1>  
+<h1 text-10>Attributify Mode (属性模式)</h1>  
 
 
 
@@ -757,7 +758,7 @@ export default defineConfig({
 layout: my-two-cols
 ---
 
-<h1 text-10>Pure Css Icons</h1>  
+<h1 text-10>Pure Css Icons (纯Css的图标)</h1>  
 
 
 
@@ -822,7 +823,7 @@ export default defineConfig({
 layout: my-two-cols
 ---
 
-<h1 text-10>SafeList</h1>  
+<h1 text-10>SafeList (安全列表)</h1>  
 
 
 
@@ -887,6 +888,59 @@ safe list
 核心的特性介绍大致是这里内容，下面来讲一下一些开发技巧。
 -->
 
+
+
+
+---
+layout: my-two-cols
+---
+
+<h1 text-10>Cli (命令工具)</h1>  
+
+
+
+<div v-click="1">
+
+``` ts 
+// uno.config.ts
+export default defineConfig({
+  
+})
+```
+</div>
+
+
+<div mt-2 v-click="2">
+
+``` vue
+
+```
+</div>
+
+
+<template #right>
+
+<div h-full flex-center flex-col gap-2>
+  <div v-click="3">
+  </div>
+</div>
+</template>
+
+
+
+<!-- 
+cli 
+
+应用的场景是什么呢？
+比如说：在我们公司内部里面有对uniapp的使用，虽然uniapp提供了部分webpack的能力，我测试了一下，并不能够直接使用unocss。
+但是我们可以使用unocss的cli来解决这个问题。
+
+cli会去扫描定义的entry入口，然后通过正则去匹配，然后生成对应的css，写入到指定的文件，全局引入这个文件就可以生效了。
+-->
+
+
+
+
 ---
 layout: cover
 class: text-center
@@ -899,7 +953,7 @@ class: text-center
 ---
 
 <div flex items-center>
-  <h1 class="!m-0 pr-2">Vscode extension</h1>
+  <h1 class="!m-0 pr-2">Vscode extension(扩展)</h1>
   <a href="https://marketplace.visualstudio.com/items?itemName=antfu.unocss" target="_blank" rel="noopener">link</a>
 </div>
 
@@ -920,7 +974,7 @@ Vscode extension
 ---
 
 <div flex items-center>
-  <h1 class="!m-0 pr-2">Vscode extension</h1>
+  <h1 class="!m-0 pr-2">Vscode extension(扩展)</h1>
   <a href="https://marketplace.visualstudio.com/items?itemName=antfu.unocss" target="_blank" rel="noopener">link</a>
 </div>
 
@@ -942,7 +996,7 @@ Vscode extension
 ---
 
 <div flex items-center>
-  <h1 class="!m-0 pr-2">Inspector</h1>
+  <h1 class="!m-0 pr-2">Inspector(检查器)</h1>
   <Inspector-link/>
 </div>
 
