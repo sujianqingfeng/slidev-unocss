@@ -8,7 +8,7 @@ growY: 50
 
 
 <div w-full h-full flex-center text-60 position-relative>
-  <p c-gray opacity-20 tracking-10>签 到</p>
+  <p c-gray opacity-5 tracking-10>签 到</p>
   <div position-absolute  border p-2 rounded-2 border-gray  class="left-50% top-50% translate--50%">
     <img src="/qr-code-placeholder.png" h-80 w-80 rounded-2 />
   </div>
@@ -36,13 +36,14 @@ Hens
 
 
 ---
-layout: center
+layout: center 
 class: 'text-center'
 growX: 50
 growY: 50
 ---
 
-# 原子化CSS(Atomic CSS)
+<h1>Atomic CSS</h1>
+<p>原子化CSS</p>
 
 
 
@@ -169,17 +170,14 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 
 <div>
   <p class="!m-0 mb-1" >atomic css of</p>
-  <h1>Advantages</h1>
+  <h1 class="flex items-center" >Advantages <h3>(优点)</h3></h1>
 </div>
 
-<v-clicks>
-
-- 复用、可维护性
-- 性能提升
-- 提升开发者体验
-
-</v-clicks>
-
+<div class="flex flex-col h-80 justify-center gap-4">
+  <h3 v-click>复用、可维护性</h3>
+  <h3 v-click>性能提升</h3>
+  <h3 v-click>提升开发者体验</h3>
+</div>
 
 
 <!-- 
@@ -195,18 +193,14 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 
 <div mt-6 >
   <p class="!m-0 mb-1" >atomic css of</p>
-  <h1>Disadvantages</h1>
+  <h1 class="flex items-center">Disadvantages <h3>(缺点)</h3></h1>
 </div>
 
 
-
-<v-clicks>
-
-- 学习成本
-- 不利于阅读
-
-</v-clicks>
-
+<div class="flex flex-col h-80 justify-center gap-4">
+  <h3 v-click>学习成本</h3>
+  <h3 v-click>不利于阅读</h3>
+</div>
 
 
 
@@ -219,18 +213,19 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 
 ---
 layout: center
+class: text-center
 ---
 
 
-# One Problem
-
+<h1>A question</h1>
+<p>存在一个问题</p>
 
 
 <!-- 
 一个大问题，不管手动去写样式，还是通过预处理去批量生成css, 都需要自己去写，
 就算自己写，有时候也写不完，因为样式属性跟属性值组合太多了。
 
-同时，我们不能管理好我们手写的css，比如说我们不知道那些是可以删除的。
+同时，我们不能管理好我们手写的css，比如说我们不容易知道那些是可以删除的。
 
 所以有没有一种方式，能够自动的去生成样式呢？
 
@@ -243,6 +238,8 @@ layout: center
 
 
 # Atomic css frameworks 
+
+<p class="text-center">原子化css框架</p>
 
 
 
