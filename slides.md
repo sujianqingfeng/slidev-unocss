@@ -38,7 +38,7 @@ Hens
 ---
 layout: center 
 class: 'text-center'
-growX: 50
+growX: 55
 growY: 50
 ---
 
@@ -214,6 +214,8 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 ---
 layout: center
 class: text-center
+growX: 55
+growY: 50
 ---
 
 
@@ -234,6 +236,8 @@ class: text-center
 
 ---
 layout: center
+growX: 55
+growY: 50
 ---
 
 
@@ -266,7 +270,7 @@ layout: center
 
 ---
 growX: 50
-growY: 130
+growY: 10
 ---
 
 
@@ -640,14 +644,14 @@ css指令
 
 
 ---
-layout: my-two-cols
+layout: my-two-cols-other
 ---
 
 <h1 text-10>Attributify Mode (属性模式)</h1>  
 
 
 
-<v-click>
+<div mt-10 v-click>
 
 ``` html
 <button 
@@ -658,12 +662,12 @@ layout: my-two-cols
   Button
 </button>
 ``` 
-</v-click>
 
+</div>
 
 <template #right>
 
-<div flex-center mt-20 v-click>
+<div flex-center mt-35 v-click>
 <button 
 class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-2 px-4 rounded border-2 border-blue-200 dark:bg-blue-500 dark:hover:bg-blue-600">
   Button
@@ -681,7 +685,7 @@ class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-
 -->
 
 ---
-layout: my-two-cols
+layout: my-two-cols-other
 ---
 
 <h1 text-10>Attributify Mode (属性模式)</h1>  
@@ -891,8 +895,7 @@ safe list
 
 
 
----
-layout: my-two-cols
+
 ---
 
 <h1 text-10>Cli (命令工具)</h1>  
@@ -902,29 +905,32 @@ layout: my-two-cols
 <div v-click="1">
 
 ``` ts 
-// uno.config.ts
+function remToRpxPreset(){
+  return {
+    name: 'preset-rem-to-rpx',
+    postprocess: (util) => {
+      util.entries.forEach((i) => {
+        const value = i[1]
+        if (typeof value === 'string' && remRE.test(value))
+          i[1] = value.replace(/(-?[\.\d]+)rem/g, (_, p1) => `${p1 * 4}rpx`)
+      })
+    },
+  }
+}
 export default defineConfig({
-  
+  cli:{
+    entry:{
+      patterns: './pages/**/*.{vue,nvue}',
+      outFile:'./static/uno.css'
+    },
+  },
+  presets: [
+    presetUno(),
+    remToRpxPreset(),
+  ]
 })
 ```
 </div>
-
-
-<div mt-2 v-click="2">
-
-``` vue
-
-```
-</div>
-
-
-<template #right>
-
-<div h-full flex-center flex-col gap-2>
-  <div v-click="3">
-  </div>
-</div>
-</template>
 
 
 
@@ -944,9 +950,12 @@ cli会去扫描定义的entry入口，然后通过正则去匹配，然后生成
 ---
 layout: cover
 class: text-center
+growX: 55
+growY: 50
 ---
 
-# Tips
+<h1>Tips</h1>
+<p>小技巧</p>
 
 
 
@@ -996,7 +1005,7 @@ Vscode extension
 ---
 
 <div flex items-center>
-  <h1 class="!m-0 pr-2">Inspector(检查器)</h1>
+  <h1 class="!m-0 pr-2">Inspector (检查器)</h1>
   <Inspector-link/>
 </div>
 
@@ -1020,11 +1029,16 @@ Vscode extension
 # Docs
 
 
-<v-clicks>
+<div class="flex flex-col h-80 justify-center gap-4">
+  <h3 v-click>
 
-- [Unocss interactive](https://unocss.dev/interactive)
-- [Tailwind css](https://tailwindcss.com/docs)
-</v-clicks>
+  [Unocss interactive (交互式文档)](https://unocss.dev/interactive)
+  </h3>
+  <h3 v-click>
+
+  [Tailwind css](https://tailwindcss.com/docs)
+  </h3>
+</div>
 
 
 
@@ -1036,6 +1050,8 @@ Vscode extension
 ---
 layout: center
 class: text-center
+growX: 55
+growY: 50
 ---
 
 # Conclusion 
@@ -1059,6 +1075,8 @@ class: text-center
 ---
 layout: center
 class: text-center
+growX: 55
+growY: 50
 ---
 
 # Q&A
@@ -1072,7 +1090,9 @@ class: text-center
 ---
 layout: center
 class: text-center
+growX: 55
+growY: 50
 ---
 
 # Thank you
-Power by [slidev](https://sli.dev) 
+Power by [slidev](https://sli.dev) [PPT](https://github.com/sujianqingfeng/slidev-unocss)
