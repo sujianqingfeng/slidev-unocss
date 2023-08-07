@@ -905,28 +905,25 @@ safe list
 <div v-click="1">
 
 ``` ts 
-function remToRpxPreset(){
-  return {
-    name: 'preset-rem-to-rpx',
-    postprocess: (util) => {
-      util.entries.forEach((i) => {
-        const value = i[1]
-        if (typeof value === 'string' && remRE.test(value))
-          i[1] = value.replace(/(-?[\.\d]+)rem/g, (_, p1) => `${p1 * 4}rpx`)
-      })
-    },
-  }
-}
+import { defineConfig,presetUno } from 'unocss'
+
 export default defineConfig({
+  // cli 配置
   cli:{
     entry:{
+      // 匹配文件
       patterns: './pages/**/*.{vue,nvue}',
+      // 输出文件
       outFile:'./static/uno.css'
     },
   },
   presets: [
-    presetUno(),
-    remToRpxPreset(),
+    presetUno({
+      // 去除css变量
+      preflight: false
+    }),
+    // 转换一些值
+    transformUniappPreset(),
   ]
 })
 ```
@@ -943,6 +940,93 @@ cli
 
 cli会去扫描定义的entry入口，然后通过正则去匹配，然后生成对应的css，写入到指定的文件，全局引入这个文件就可以生效了。
 -->
+
+
+---
+
+<h1 text-10>Cli (命令工具)</h1>  
+
+
+
+<div v-click="1">
+
+``` ts 
+
+const remRE = /(-?[\.\d]+)rem/g
+
+function transformUniappPreset(){
+  return {
+    name: 'preset-transform-uniapp',
+    postprocess: (util) => {
+      util.entries.forEach((i) => {
+        const [,value] = i
+        if (typeof value === 'string' && remRE.test(value)){
+          i[1] = value.replace(remRE, (_, p1) => `${+p1 * 4}rpx`)
+        }
+        if(typeof value === 'string' && ['rgba'].some(x=>value.startsWith(x))){
+          i[1] = value.replace(/,var\(.+\)\)$/, ')').replace('rgba', 'rgb')
+        }
+      })
+      util.entries = util.entries.filter((i)=> {
+        const [key]= i
+        return typeof key === 'string' && !['--un-text-opacity'].some(k=>k===key)
+      })
+    },
+  }
+}
+```
+</div>
+
+
+
+
+---
+layout: my-two-cols
+---
+
+<h1 text-10>Cli (命令工具)</h1>  
+
+
+
+<div v-click="1">
+
+``` vue 
+// index.nvue
+<template>
+	<view class="h-800 flex justify-center items-center">
+		<text class="text-80 color-red opacity-100">hello unocss</text>
+	</view>
+</template>
+
+<style/>
+```
+</div>
+
+
+<div mt-2 v-click="2">
+
+``` css
+/* uno.css */
+/* layer: default */
+.h-800{height:800rpx;}
+.flex{display:flex;}
+.items-center{align-items:center;}
+.justify-center{justify-content:center;}
+.text-80{font-size:80rpx;}
+.color-red{color:rgb(248,113,113);}
+.opacity-100{opacity:1;}
+```
+</div>
+
+
+<template #right>
+
+<div h-full flex-center flex-col gap-2>
+  <div v-click="3">
+    <img w-60 src="/uniapp-unocss.jpg" />
+  </div>
+</div>
+</template>
 
 
 
