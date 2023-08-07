@@ -1,5 +1,5 @@
 <template>
-  <div flex gap-2 px-15 py-10>
+  <div flex gap-2 px-14 py-10>
     <div flex-1>
       <slot />
     </div>

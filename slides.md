@@ -191,7 +191,7 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 
 --- 
 
-<div mt-6 >
+<div>
   <p class="!m-0 mb-1" >atomic css of</p>
   <h1 class="flex items-center">Disadvantages <h3>(缺点)</h3></h1>
 </div>
@@ -436,15 +436,16 @@ const { state, next } = useCycleList([
 layout: my-two-cols
 ---
 
-<h1 text-10>Presets (预设)</h1>  
+<h1 text-9 leading-10>Presets (预设)</h1>  
 
 
-<v-click>
+
+<div mt-4 v-click>
 
 ``` bash
 pnpm add -D @unocss/preset-uno
 ```
-</v-click>
+</div>
 
 <div mt-2 v-click> 
 
@@ -495,9 +496,9 @@ Presets
 layout: my-two-cols
 ---
 
-<h1 text-10>Shortcuts (快捷方式)</h1>  
+<h1 text-9 leading-10>Shortcuts (快捷方式)</h1>  
 
-<div v-click="1">
+<div mt-4 v-click="1">
 
 ``` html
 <button class="text-4 rounded-2 px-2 py-1 font-bold bg-green">
@@ -571,14 +572,14 @@ shortcuts
 -->
 
 ---
-layout: my-two-cols
+layout: my-two-cols-other
 ---
 
-<h1 text-10>Css Directives (Css指令)</h1>  
+<h1 text-9 leading-10>Css Directives (Css指令)</h1>  
 
 
 
-<div v-click="1">
+<div mt-4 v-click="1">
 
 ``` bash
 pnpm add -D @unocss/transformer-directives
@@ -647,7 +648,7 @@ css指令
 layout: my-two-cols-other
 ---
 
-<h1 text-10>Attributify Mode (属性模式)</h1>  
+<h1 text-9 leading-10>Attributify Mode (属性模式)</h1>  
 
 
 
@@ -688,11 +689,11 @@ class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-
 layout: my-two-cols-other
 ---
 
-<h1 text-10>Attributify Mode (属性模式)</h1>  
+<h1 text-9 leading-10>Attributify Mode (属性模式)</h1>  
 
 
 
-<div v-click="1">
+<div mt-4 v-click="1">
 
 ``` bash
 pnpm add -D @unocss/preset-attributify
@@ -759,14 +760,14 @@ export default defineConfig({
 
 
 ---
-layout: my-two-cols
+layout: my-two-cols-other
 ---
 
-<h1 text-10>Pure Css Icons (纯Css的图标)</h1>  
+<h1 text-9 leading-10>Pure Css Icons (纯Css的图标)</h1>  
 
 
 
-<div v-click="1">
+<div mt-4 v-click="1">
 
 ``` bash
 pnpm add -D @unocss/preset-icons @iconify-json/[the-collection-you-want]
@@ -827,11 +828,11 @@ export default defineConfig({
 layout: my-two-cols
 ---
 
-<h1 text-10>SafeList (安全列表)</h1>  
+<h1 text-9 leading-10>SafeList (安全列表)</h1>  
 
 
 
-<div v-click="1">
+<div mt-4 v-click="1">
 
 ``` ts 
 // uno.config.ts
@@ -898,7 +899,7 @@ safe list
 
 ---
 
-<h1 text-10>Cli (命令工具)</h1>  
+<h1 text-9 leading-10>Cli (命令工具)</h1>  
 
 
 
@@ -944,7 +945,7 @@ cli会去扫描定义的entry入口，然后通过正则去匹配，然后生成
 
 ---
 
-<h1 text-10>Cli (命令工具)</h1>  
+<h1 text-9 leading-10>Cli (命令工具)</h1>  
 
 
 
@@ -984,11 +985,11 @@ function transformUniappPreset(){
 layout: my-two-cols
 ---
 
-<h1 text-10>Cli (命令工具)</h1>  
+<h1 text-9 leading-10>Cli (命令工具)</h1>  
 
 
 
-<div v-click="1">
+<div mt-4 v-click="1">
 
 ``` vue 
 // index.nvue
@@ -1016,6 +1017,11 @@ layout: my-two-cols
 .color-red{color:rgb(248,113,113);}
 .opacity-100{opacity:1;}
 ```
+</div>
+
+<div mt-10 color-gray text-2 v-click="4">
+
+[Demo Link](https://github.com/sujianqingfeng/uniapp-vue2-unocss)
 </div>
 
 
