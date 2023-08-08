@@ -48,9 +48,10 @@ growY: 50
 
 
 <!-- 
-- 定义： 通过属性及其属性值来编写样式，然后在使用得时候进行组合。
+- 定义： 是一种编写css的方法，将属性及属性值拆分成独立的、可重用的类来构建页面。
 - 这个概念很早就出现了，最近几年才出现这个词，并且开始流行起来。
- -->
+- 原子化长什么样子？
+-->
 
 
 
@@ -95,7 +96,10 @@ growY: 50
 
 
 
-<!-- 相信大家也都写过这样的代码，这就是原子化css的一个例子。 -->
+<!-- 
+相信大家也都写过这样的代码，这就是原子化css的一个例子。
+这样一个一个写比较麻烦，我们可以通过css预处理器来简化的编写。
+-->
 
 
 ---
@@ -161,6 +165,7 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 <!-- 
  - 使用预处理的一些特性来批量生成，方便一些
 
+
  既然聊到了原子化，就提一提原子性的优缺点。
 -->
 
@@ -200,6 +205,7 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 <div class="flex flex-col h-80 justify-center gap-4">
   <h3 v-click>学习成本</h3>
   <h3 v-click>不利于阅读</h3>
+  <h3 v-click>不利于管理</h3>
 </div>
 
 
@@ -207,6 +213,7 @@ $margin-sizes: (('x', (4, 8)),('t', (4, 8)));
 <!-- 
  - 理解和使用原子化 CSS 可能需要一些时间和学习成本。与传统的基于选择器的 CSS 相比，这种模式需要适应新的思维方式和工作流程。 
  - 处理复杂的布局时，代码会变成冗长，不利于阅读。（如何去规避成为了一个问题？）
+ - 随着时间的迭代，会变得难以管理，因为我们不知道哪些是可以删除的，哪些是不可以删除的。
 -->
 
 
@@ -224,15 +231,16 @@ growY: 50
 
 
 <!-- 
+我们介绍了上面两种使用原子化css的方式，但是存在
 一个大问题，不管手动去写样式，还是通过预处理去批量生成css, 都需要自己去写，
 就算自己写，有时候也写不完，因为样式属性跟属性值组合太多了。
 
-同时，我们不能管理好我们手写的css，比如说我们不容易知道那些是可以删除的。
 
 所以有没有一种方式，能够自动的去生成样式呢？
+同时，能不能帮我们管理好css，比如说让我们知道那些是可以删除的。
 
 当然时有的，我们就要提到一些原子化css框架。
- -->
+-->
 
 ---
 layout: center
@@ -259,7 +267,7 @@ growY: 50
 
 <!-- 
  - 2017年左右，Tailwind css最先出来，因其独特的方式而受到欢迎。
- - 后来vite的出现，在vite中使用，会全量编译css，甚至会出现M级别的数据，会造成性能问题。所以，后面出现了按需编译的Windi css。
+ - 后来vite的出现，在vite中使用，会全量编译css，甚至会出现M级别的数据，会造成性能问题。同时也不符合vite的哲学。所以，后面出现了按需编译的Windi css。
  - unocss 受到了Tailwind css 和 Windi css的启发，在这些基础上，给到了更多的自定义的能力。
 
  - 后来，Tailwind css 也实现了按需编译和属性模式，Windi css就没有了优势，所以后面就没有继续维护了。 
@@ -371,6 +379,16 @@ growY: 10
 - css指令
 -->
 
+
+---
+
+# Install (安装)
+
+
+
+<div v-click mt-40 text-20 text-center leading-20>
+  pnpm add -D unocss
+</div>
 
 
 ---
@@ -659,7 +677,7 @@ layout: my-two-cols-other
   class="bg-blue-400 hover:bg-blue-500 text-sm text-white 
   font-mono font-light py-2 px-4 
   rounded border-2 border-blue-200 
-  dark:bg-blue-500 dark:hover:bg-blue-600">
+  dark:bg-red-500 dark:hover:bg-red-600">
   Button
 </button>
 ``` 
@@ -670,7 +688,7 @@ layout: my-two-cols-other
 
 <div flex-center mt-35 v-click>
 <button 
-class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-2 px-4 rounded border-2 border-blue-200 dark:bg-blue-500 dark:hover:bg-blue-600">
+class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-2 px-4 rounded border-2 border-blue-200 dark:bg-red-500 dark:hover:bg-red-600">
   Button
 </button>
 </div>
@@ -718,7 +736,7 @@ export default defineConfig({
 
 ``` html
 <button 
-  bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
+  bg="blue-400 hover:blue-500 dark:red-500 dark:hover:red-600"
   text="sm white"
   font="mono light"
   p="y-2 x-4"
@@ -740,7 +758,7 @@ export default defineConfig({
 <div h-full flex-center flex-col gap-2>
   <div v-click="4">
     <button 
-      bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
+      bg="blue-400 hover:blue-500 dark:red-500 dark:hover:red-600"
       text="sm white"
       font="mono light"
       p="y-2 x-4"
@@ -749,7 +767,7 @@ export default defineConfig({
     </button>
   </div>
 
-  <div v-click="6">
+  <div mt-20 v-click="6">
     <button color-green>Button</button>
   </div>
 </div>
@@ -1134,7 +1152,7 @@ Vscode extension
 
 <!--
 - unocss有一个交互式文档
-- 甚至可以去看Tailwind
+- 甚至可以去看Tailwind，因为unocss内置的规则兼容了tailwind css， 去看tailwind其实有一个好处，以后你想使用tailwind css的时候，基本可以无缝切换。
  -->
 
 ---
@@ -1160,6 +1178,9 @@ growY: 50
 
 如果你想了解更多，可以看看官方文档。
 
+同时，原子化css并不是万能的，它只是一种解决方案，有时候其他的解决方式可能更加快捷有效。
+
+下面就是QA环节。
 -->
 
 ---
